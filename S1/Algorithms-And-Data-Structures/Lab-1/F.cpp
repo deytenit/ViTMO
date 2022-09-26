@@ -2,9 +2,12 @@
 
 using namespace std;
 
+const string sep = "-----------------------------------------\n";
+
 struct fridge {
     struct item {
-        int amount;
+        string title;
+        unsigned int amount;
 
         void add(const int& filler) {
             if (amount + filler < 0) {
@@ -27,7 +30,7 @@ struct fridge {
         }
     };
 
-    item items[4];
+    item items[4] = {{"milk", 0}, {"meat", 0}, {"cheese", 0}, {"sweets", 0}};
 
     void log() const {
         cout << "1. Milk - " << items[0] << " li.\n"
@@ -36,8 +39,6 @@ struct fridge {
              << "4. Sweets - " << items[3] << " amo." << endl;
     }
 };
-
-const string sep = "-----------------------------------------\n";
 
 int main() {
     fridge fridges[2];
