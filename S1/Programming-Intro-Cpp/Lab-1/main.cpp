@@ -1,13 +1,3 @@
-
-/**
- * @file main.cpp
- *
- * @brief WordCount console utility
- *
- * @author Vladimir Eremin
- *
- */
-
 #include <getopt.h>
 
 #include <array>
