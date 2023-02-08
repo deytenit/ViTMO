@@ -1,0 +1,19 @@
+{
+	"common": {
+		"name": "Common config",
+		"description": "Some config",
+		"version": 1
+	},
+	"servers": {
+		"first": {
+			"ip": "127.0.0.1",
+			"enabled": true,
+			"ports": [ 100505, [ 10506, "fake" ] ]
+		},
+		"second": {
+			"enabled": true,
+			"ip": "127.0.0.1",
+			"ports": [ 10005, 1006 ]
+		}
+	}
+}
