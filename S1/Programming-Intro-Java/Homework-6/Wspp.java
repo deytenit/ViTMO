@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Wspp {
     public static void main(String[] args) {
-        Map<String, IntList> words = new LinkedHashMap<>();
+        LinkedHashMap<String, IntList> words = new LinkedHashMap<>();
         int entryCount = 0;
 
         try {
