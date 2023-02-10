@@ -3,7 +3,7 @@ import java.util.*;
 import java.util.function.Predicate;
 
 public class MyScanner {
-    private final Predicate<Character> newLineDelimiter = c -> c == '\n' || c == '\r';
+    private final Predicate<Character> newLineDelimiter = c -> c == '\n';
 
     private Reader source;
     private int position;
@@ -18,6 +18,10 @@ public class MyScanner {
 
     private boolean backedTokenized;
     private int backedPosition;
+
+    private String cache;
+    private Predicate<Character> cachePredicate;
+    private int cachePosition;
 
     private Predicate<Character> delimiter;
 
@@ -129,7 +133,7 @@ public class MyScanner {
         if (bufferSize == buffer.length) {
             extendBuffer();
         }
-
+		// :NOTE: такие вещи лучше выносить в константу
         int bufferLimit = 1024;
         int limit = Math.min(buffer.length - bufferSize, bufferLimit);
 
@@ -194,7 +198,10 @@ public class MyScanner {
 
         while (!exhausted) {
             proceedToToken(prdc);
-            if (nextToken(prdc) != null) {
+            cache = nextToken(prdc);
+            cachePredicate = prdc;
+            cachePosition = position;
+            if (cache != null) {
                 revertState();
                 return true;
             }
@@ -216,6 +223,13 @@ public class MyScanner {
     public String next(Predicate<Character> prdc) throws NoSuchElementException, IllegalStateException {
         verify();
 
+        if (cache != null && prdc == cachePredicate) {
+            String temp = cache;
+            cache = null;
+            position = cachePosition;
+            return temp;
+        }
+
         while (true) {
             proceedToToken(prdc);
             String result = nextToken(prdc);
@@ -236,9 +250,9 @@ public class MyScanner {
     public boolean hasNextLine() throws IllegalStateException {
         verify();
 
-        /*if (bufferSize == buffer.length) readSource();
+        /*if (position == bufferSize) readSource();
 
-        return bufferSize < buffer.length || !exhausted;*/
+        return position < bufferSize || !exhausted;*/
 
         return hasNext(newLineDelimiter.negate()) || hasNext(newLineDelimiter);
     }
@@ -251,7 +265,8 @@ public class MyScanner {
 
             if (result != null) {
                 if (position < bufferSize) {
-                    position += bufferSize - position > 1 && buffer[position] == '\r' && buffer[position + 1] == '\n' ? 2 : 1;
+                    position += bufferSize - position > 1 && buffer[position] == '\r' && buffer[position + 1] == '\n'
+                            ? 2 : 1;
                 }
                 return result;
             }
