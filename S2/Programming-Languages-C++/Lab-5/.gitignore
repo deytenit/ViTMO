@@ -1,0 +1,11 @@
+# CLion
+CMakeLists.txt.user
+cmake-build-debug
+cmake-build-release
+.idea
+
+# VSCode
+/.vscode
+
+# Build artifacts
+/build
