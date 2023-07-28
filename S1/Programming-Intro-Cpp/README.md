@@ -1,16 +1,16 @@
-# Intro to C/C++ programming
+# Основы программирования (С++)
 
-## Preface
+_**1-й** семестр | **09.03.02** Информационные системы и технологии_
 
-Laboratory works that I made during first semester of _Infomation Systems and Technology_ for **the C/C++ course**.
+## Навигация
 
-> All tasks were **made by the organizers** of this course. **Thank you!**
+### **[Условия](./Public/)**
 
-## Navigation
+### Решения
 
-- **Lab-1**: _**[WordCount Clone](./Lab-1/)**_
-- **Lab-2**: _**[BigInteger](./Lab-2/)**_
-- **Lab-3**: _**[Sandpile Model](./Lab-3/)**_
-- **Lab-4**: _**[Hamming File Archiver](./Lab-4/)**_
-- **Lab-5**: _**[C++ Argument Parser Library](./Lab-5/)**_
-- **Lab-6**: _**[OneMoreFunnyLanguage (superset of ini) format](./Lab-6/)**_
+- **[WordCount](./Lab-1/)**
+- **[BigUnsignedInteger](./Lab-2/)**
+- **[Sandpile Model](./Lab-3/)**
+- **[Hamming File Archiver](./Lab-4/)**
+- **[Argument Parser Library](./Lab-5/)**
+- **[OMFL (superset of ini)](./Lab-6/)**

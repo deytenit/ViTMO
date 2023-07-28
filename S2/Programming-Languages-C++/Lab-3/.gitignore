@@ -2,9 +2,7 @@ CMakeLists.txt.user
 cmake-build-debug
 cmake-build-release
 .idea
-.cache
-.vs
+.env
+.vscode
 
-# CMAKE OUTPUT
 /build
-/out

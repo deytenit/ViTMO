@@ -1,7 +1,5 @@
 ## Инвертированный индекс
 
-> _I couldn't figure it out, and I didn't need to actually. So I leave it to you to figure it out for yourselves)_
-
 ### Идея
 https://en.wikipedia.org/wiki/Inverted_index
 

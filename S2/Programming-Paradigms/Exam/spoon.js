@@ -170,8 +170,8 @@ const Parser = (() => {
                 result = result.concat(tmp);
                 continue;
             }
-            if (command.type == Command.Types.CLOSE_BRACKET) {
-                if (depth == 0) {
+            if (command.type === Command.Types.CLOSE_BRACKET) {
+                if (depth === 0) {
                     this.error("Cycle was never opened.");
                 }
 

@@ -1,7 +1,0 @@
-# Environmental directories
-.vscode/
-
-# Build files and directories
-build/
-*.class
-*.jar

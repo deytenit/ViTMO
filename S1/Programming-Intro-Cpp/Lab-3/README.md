@@ -1,6 +1,4 @@
-_**I'm really sorry for the missed deadline. ICPC was the real time consumer.**_
-
-# Sandpiller 2211.1
+# Sandpiller
 
 ## Features
 

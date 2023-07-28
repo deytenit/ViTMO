@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(SmallTask3 LANGUAGES CXX)
+project(Big1 LANGUAGES CXX)
 
 if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
   message(STATUS "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
@@ -26,8 +26,7 @@ if (TESTS_BUILD_TYPE MATCHES ASAN)
 endif()
 if (TESTS_BUILD_TYPE MATCHES MSAN)
     set(COMPILE_OPTS -Wall -Wextra -Werror -pedantic -pedantic-errors -O1 -fsanitize=leak
-        -fno-omit-frame-pointer
-        -fno-sanitize-recover=all)
+        -fno-omit-frame-pointer -fno-sanitize-recover=all)
     set(LINK_OPTS -fsanitize=leak)
 endif()
 if (TESTS_BUILD_TYPE MATCHES USAN)
@@ -60,9 +59,7 @@ conan_cmake_install(
     SETTINGS ${settings}
 )
 
-set(TASK_VARIANT Treap)
-
 add_subdirectory(libraries)
 
 add_executable(main src/main.cpp)
-target_link_libraries(main PRIVATE tree::${TASK_VARIANT})
+target_link_libraries(main PRIVATE big1::SeamCarver)
