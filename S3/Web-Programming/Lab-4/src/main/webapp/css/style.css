@@ -1,0 +1,288 @@
+:root {
+    font-size: 16px;
+    font-family: Verdana, sans-serif;
+    color: rgb(34, 34, 34);
+
+    --border-color: rgb(185, 185, 185);
+    --boder: 1px solid var(--border-color);
+    --border-radius: 6px;
+    --caption-color: #3B5998;
+    --outline-color: #e1e1e1;
+}
+
+html {
+    min-width: 800px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.user-link {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header {
+    position: relative;
+}
+
+header .languages {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+header .enter-or-register-box {
+    position: absolute;
+    top: calc(24px + 0.5rem);
+    right: 0;
+}
+
+header nav {
+    border: var(--boder);
+    border-radius: var(--border-radius);
+    margin: 0.5rem 0 2rem 0;
+}
+
+header nav ul {
+    padding: 0;
+    margin: 1rem;
+}
+
+header nav ul li {
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    font-family: Arial, sans-serif;
+    margin-right: 1rem;
+}
+
+header nav ul li .underlined {
+    text-decoration: underline var(--caption-color) 3px;
+}
+
+.middle {
+    display: flow-root;
+}
+
+aside {
+    float: right;
+    width: 20rem;
+}
+
+aside section {
+    border: var(--boder);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+aside section .header {
+    border-bottom: var(--boder);
+    padding: 0.25rem;
+    font-weight: bold;
+    color: var(--caption-color);
+}
+
+aside section .header:before {
+    content: "→ ";
+    font-size: 1.1rem;
+}
+
+aside section .body {
+    padding: 0.25rem;
+}
+
+aside section .footer {
+    border-top: var(--boder);
+    padding: 0.25rem;
+    text-align: right;
+    font-size: 0.8rem;
+}
+
+aside section .footer a:after {
+    content: " →";
+}
+
+main {
+    margin-right: 21rem;
+}
+
+/* datatable */
+
+main .datatable {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    background-color: var(--outline-color);
+}
+
+main .datatable .caption {
+    padding: 0.25em 0.5em;
+}
+
+main .datatable table {
+    width: 100%;
+}
+
+main .datatable td,
+th {
+    padding: 0.25em;
+    text-align: center;
+}
+
+main .datatable tr {
+    background-color: white;
+}
+
+main .datatable tbody tr:nth-child(odd) {
+    background-color: whitesmoke;
+}
+
+/* article */
+
+main article {
+    margin-bottom: 2em;
+}
+
+main article .positive-score {
+    font-weight: bold;
+    color: green;
+}
+
+main article .negative-score {
+    font-weight: bold;
+    color: red;
+}
+
+main article .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--caption-color);
+}
+
+main article .title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+main article .information {
+    padding-top: 0.25em;
+    color: grey;
+}
+
+main article .body {
+    padding-left: 0.75em;
+    border-left: 5px solid var(--border-color);
+}
+
+main article .attachment {
+    padding: 0;
+    margin: 0.25em 0;
+    font-size: 0.8rem;
+    color: grey;
+    list-style-type: none;
+}
+
+main article .attachment li {
+    padding: 0.15em 0;
+}
+
+main article .attachment li::before {
+    display: inline-block;
+    vertical-align: top;
+    content: "";
+    width: 16px;
+    height: 16px;
+    margin-right: 0.25em;
+    background: url("../img/paperclip-16x16.png") no-repeat;
+}
+
+main article .footer {
+    padding: 0.35em 0.5em;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: auto;
+}
+
+main article .footer .left {
+    float: left;
+}
+
+main article .footer .left > * {
+    vertical-align: middle;
+}
+
+main article .footer .right {
+    float: right;
+    line-height: 1.25em;
+    font-size: 0.9rem;
+}
+
+main article .footer .right img {
+    position: relative;
+    margin-left: 0.5em;
+    top: 0.15em;
+}
+
+/* user */
+
+main .user-selector-box .profile {
+    border: var(--boder);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    overflow: auto;
+}
+
+main .user-selector-box .data {
+    display: inline-block;
+}
+
+main .user-selector-box .data .name a {
+    font-size: 2rem;
+}
+
+main .user-selector-box .avatar {
+    float: right;
+}
+
+main .user-selector-box .footer {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+main .user-selector-box .footer ul {
+    padding: 0;
+    margin: 0;
+}
+
+main .user-selector-box .footer ul li {
+    display: inline;
+    padding: 0;
+    color: grey;
+    margin-right: 1rem;
+}
+
+main .user-selector-box .footer ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    color: blue;
+}
+
+/* users */
+
+footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: var(--boder);
+    text-align: center;
+}
