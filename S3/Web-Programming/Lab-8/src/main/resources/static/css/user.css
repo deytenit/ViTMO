@@ -1,0 +1,18 @@
+main .profile {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    overflow: auto;
+}
+
+main .data {
+    display: inline-block;
+}
+
+main .data .name a {
+    font-size: 2rem;
+}
+
+main .avatar {
+    float: right;
+}
