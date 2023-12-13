@@ -1,0 +1,109 @@
+\documentclass[12pt,a4paper]{article}
+% \usepackage[english]{babel}
+% \usepackage[utf8x]{inputenc}
+
+\usepackage{minted}
+
+\usepackage{graphicx} % Required for inserting images.
+\usepackage[margin=25mm]{geometry}
+\parskip 4.2pt  % Sets spacing between paragraphs.
+\parindent 8.4pt  % Sets leading space for paragraphs.
+\usepackage[font=sf]{caption} % Changes font of captions.
+
+\usepackage{svg}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{verbatim}
+\usepackage{hyperref} % Required for inserting clickable links.
+\usepackage{natbib} % Required for APA-style citations.
+\usepackage[english, russian]{babel}
+
+\title{Управление памятью в ОС Linux}
+\author{Ерёмин Владимир}
+
+\begin{document}
+\maketitle
+
+\section{Конфигурация}
+\begin{itemize}
+\item Общий объем оперативной памяти: \textbf{7810200}  KiB
+\item Объем раздела подкачки: \textbf{2097152} KiB
+\item Размер страницы вирт. памяти: \textbf{4096}
+\item Объем свободной физ. памяти в ненагруж. системе: \textbf{6728628} KiB
+\item Объем свободного пр-ва в разделе подкачки в ненагруж. системе: \textbf{2097152} KiB
+\end{itemize}
+
+\begin{minted}{bash}
+$ free --kibi
+               total        used        free      shared  buff/cache   available
+Mem:         7810200      554736     6728628        3312      526836     7019820
+Swap:        2097152           0     2097152
+
+$ getconf PAGE_SIZE
+4096
+\end{minted}
+
+\section{Эксперимент №1}
+
+\subsection{Первый этап}
+
+Макс. размер массива: \textbf{118000000}
+
+\subsubsection{Сообщение}
+
+\begin{minted}[breaklines]{bash}
+
+$ dmesg
+
+[ 5333.821710] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/, mems_allowed=0, global_oom,task_memcg=/,task=mem.bash,pid=5201,uid=1000
+[ 5333.821738] Out of memory: Killed process 5201 (mem.bash) total-vm:9240292kB, anon-rss:7333220kB, file-rss:4kB, shmem-rss:0kB, UID:1000 pgtables:18116kB oom_score_adj:0
+\end{minted}
+
+\subsubsection{График}
+\begin{figure}[htbp]
+  \centering
+  \includesvg{first-chart.svg}
+  \caption{Free Mem vs. Free Swap (single)}
+\end{figure}
+
+\subsubsection{Вывод}
+
+График демонстрирует логичную последовательность событий: по истечении физической памяти активизировался раздел подкачки, что обеспечило продолжение выполнения процесса при использовании дополнительного объема памяти. По истечении доступного ресурса подкачки произошло аварийное завершение процесса из-за исчерпания оперативной памяти (OOM). Резкое освобождение заметного объема памяти отчетливо фиксируется в конечной части графика. Стоит отметить, что раздел подкачки не мгновенно возвращает освобожденную память, что отражено в небольшом скачке на графике физической памяти.
+
+\subsection{Второй этап}
+
+Макс. размер массива (база): \textbf{118000000}
+Макс. размер массива (копия): \textbf{60000000}
+
+\subsubsection{Сообщение}
+\begin{minted}[breaklines]{bash}
+
+$ dmesg
+
+[ 8353.913293] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/, mems_allowed=0, global_oom,task_memcg=/, task=mem-copy.bash,pid=6080,uid=1000
+[ 8353.913421] Out of memory: Killed process 6080 (mem-copy.bash) total-vm:4703584kB, anon-rss:3676908kB, file-rss:0kB, shmem-rss:0kB, UID:1000 pgtables:9252kB oom_score_adj:0
+
+[ 8448.533098] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/, mems_allowed=0, global_oom,task_memcg=/,task=mem.bash,pid=6087,uid=1000
+[ 8448.533126] Out of memory: Killed process 6087 (mem.bash) total-vm:9226564kB, anon-rss:7349100kB, file-rss:0kB, shmem-rss:0kB, UID:1000 pgtables:18096kB oom_score_adj:0
+\end{minted}
+
+\subsubsection{График}
+\begin{figure}[htbp]
+  \centering
+  \includesvg{second-chart.svg}
+  \caption{Free Mem vs. Free Swap (parallel)}
+\end{figure}
+
+\subsubsection{Вывод}
+
+В начале данного этапа наблюдается аналогия с первым этапом, однако это происходит быстрее. Это обусловлено наличием двух параллельно выполняющихся процессов, оба из которых требуют выделения памяти. Копия завершила свое выполнение досрочно, и этот факт привел к освобождению ресурсов памяти. Этот момент можно наблюдать на графике, где примерно половина общего объема памяти становится доступной после завершения копии. Далее процесс развивается согласно логике первого этапа.
+
+\section{Эксперимент №2}
+
+При $K=10$ процессы не прервутся так, как запущеные $newmem.sh$ успевают завершится, высвобождая память для новых запусков - ромежуток в секунду на самом деле достаточен для этого. Однако и при $K=30$ на моем устройстве процессы выполняются успешно. (даже физическая память не успевает заполнится). Думаю это связанно с железом на котором происходит тестирование. Поэтому эксперемент буду проводить при $K=50$ - OOM убил 10 процессов.
+
+С помощью метода бинарного поиска можно найти $N$ при котором процессы завершатся успешно: \textbf{11662500}
+
+\end{document}
