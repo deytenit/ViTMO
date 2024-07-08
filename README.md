@@ -29,3 +29,9 @@ Assignments and other stuff related to the university
 - **[Дискретная Математика](./S3/Discrete-Math/)**
 - **[Алгоритмы и Cтруктуры Данных](./S3/Algorithms-And-Data-Structures/)**
 - **[История Русской Культуры в Контексте Мировой Культуры](./S3/History-of-Russian-Culture-in-the-Context-of-World-Culture/)**
+
+### [4 семестр](./S4/)
+
+- **[Продвинутая Java](./S4/Advanced-Java/)**
+- **[Дискретная Математика](./S4/Discrete-Math/)**
+- **[Алгоритмы и Структуры Данных](./S4/Algorithms-And-Data-Structures/)**
