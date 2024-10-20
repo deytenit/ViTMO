@@ -14,6 +14,7 @@ Assignments and other stuff related to the university
 - **[Введение в Программирование (Java)](./S1/Programming-Intro-Java/)**
 - **[Архитектура ЭВМ](./S1/Computer-Architecture/)**
 - **[Алгоритмы и Структуры Данных](./S1/Algorithms-And-Data-Structures/)**
+- **[Инструментальные Средства Разработки](./S1/Development-Tools/)**
 
 ### [2 семестр](./S2/)
 
@@ -35,3 +36,4 @@ Assignments and other stuff related to the university
 - **[Продвинутая Java](./S4/Advanced-Java/)**
 - **[Дискретная Математика](./S4/Discrete-Math/)**
 - **[Алгоритмы и Структуры Данных](./S4/Algorithms-And-Data-Structures/)**
+- **[Social Media Computing](./S4/Social-Media-Computing/)**
