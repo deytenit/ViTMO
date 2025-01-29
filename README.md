@@ -37,3 +37,10 @@ Assignments and other stuff related to the university
 - **[Дискретная Математика](./S4/Discrete-Math/)**
 - **[Алгоритмы и Структуры Данных](./S4/Algorithms-And-Data-Structures/)**
 - **[Social Media Computing](./S4/Social-Media-Computing/)**
+
+### [5 семестр](./S5/)
+
+- **[Функциональное Программирование](./S5/Functional-Programming/)**
+- **[Параллельное Программирование](./S5/Parallel-Programming/)**
+- **[Анализ Данных и Машинное Обучение (часть 1)](./S5/Data-Analysis-And-Machine-Learning-1/)**
+- **[Математическая Статистика](./S5/Mathematical-Statistics/)**
