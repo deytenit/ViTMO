@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "strict": true,
+
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    "types": ["node"],
+
+    "outDir": "./dist",
+    "sourceMap": true,
+
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "target": "ES2022",
+
+    "skipLibCheck": true
+  },
+}

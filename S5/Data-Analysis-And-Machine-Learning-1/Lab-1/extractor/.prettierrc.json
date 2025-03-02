@@ -1,0 +1,23 @@
+{
+  "semi": true,
+  "trailingComma": "none",
+  "singleQuote": false,
+  "printWidth": 100,
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": ["**/*.json, **/*.yml"],
+      "options": {
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": ["**/*.ts"],
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+.venv
+node_modules
+dist/
+
+files/images/*
+files/albums_plain\[*\]*
