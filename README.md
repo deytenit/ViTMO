@@ -4,7 +4,7 @@ Assignments and other stuff related to the university
 
 ## Примечание
 
-> :warning: _**Не стоит списывать код**, ведь это неспортивно, но кто запрещал посмотреть идею._
+> :warning:  _**Не стоит списывать код**, ведь это неспортивно, но кто запрещал посмотреть идею._
 
 ## Навигация
 
@@ -44,3 +44,9 @@ Assignments and other stuff related to the university
 - **[Параллельное Программирование](./S5/Parallel-Programming/)**
 - **[Анализ Данных и Машинное Обучение (часть 1)](./S5/Data-Analysis-And-Machine-Learning-1/)**
 - **[Математическая Статистика](./S5/Mathematical-Statistics/)**
+
+### [6 семестр](./S6/)
+
+- **[Анализ Данных и Машинное Обучение (часть 2)](./S6/Data-Analysis-And-Machine-Learning-2/)**
+- **[Алгоритмы в Биоинформатике](./S6/Bioinformatics/)**
+- **[Компьютерные Сети](./S6/Computer-Networking/)**
