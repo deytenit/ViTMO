@@ -45,16 +45,15 @@ quickemu --vm ubuntu-24.10-2.conf
 
 #### Установка zellij
 
-Т.к. Ubuntu всеми обделённый дистрибутив,
-когда я использую мультиплексер zellij,
-поэтому можно воспользоваться [скриптом](https://gist.github.com/BaksiLi/ea2f505fdbe42349a5225390264c1f40).
+Т.к. Ubuntu обделённый на cutting-edge пакеты дистрибутив, а я использую мультиплексер zellij,
+можно воспользоваться [скриптом](https://gist.github.com/BaksiLi/ea2f505fdbe42349a5225390264c1f40).
 
 ```bash
 curl -fsSL 'https://gist.githubusercontent.com/BaksiLi/ea2f505fdbe42349a5225390264c1f40/raw/ff71c02d9fb4f933dcf04c9fe5dbd863ef2c135e/install_zellij.sh' | sudo bash
 ```
 
-> [Конфиг для zellij](https://github.com/deytenit/dotfiles/tree/linux) можно скачать аналогично,
-> предворительно создав директорию конфигурации `~/.config/zellij`.
+> [Конфиг для zellij](https://github.com/deytenit/dotfiles/blob/main/.config/zellij/config.kdl),
+> предворительно создаем директорию конфигурации `~/.config/zellij`.
 
 #### Установка OpenVPN
 
